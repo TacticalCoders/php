@@ -32,12 +32,13 @@
 		echo "<td>",$row['aboutMe'],"</td>";
 		echo "<td>",$row['motive'],"</td>";
 		echo "<td>",$row['applyTime'],"</td>";
-		echo "<td>","<a href='update_apply.php?applyId=",$row['clubId'], "'>수정</a></td>";
-		echo "<td>","<a href='delete__apply.php?applyId=",$row['clubId'], "'>삭제</a></td>";	
+		echo "<td>","<a href='updateapply.php?applyId=",$row['applyId'], "'>수정</a></td>";
+		echo "<td>","<a href='deleteapply.php?applyId=",$row['applyId'], "'>삭제</a></td>";	
 		echo "</tr>";
 	}
 
 	mysqli_close($con);
 	echo "</table>";
 	echo "<br> <a href='main.html'><-- 홈으로</a> ";
+	echo "&nbsp &nbsp <a href='insertapply.php'><b>지원하기(추가)</b></a> ";
 ?>

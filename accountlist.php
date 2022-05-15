@@ -26,12 +26,13 @@
 		echo "<td>",$row['studentId'],"</td>";
 		echo "<td>",$row['department'],"</td>";
 		echo "<td>",$row['phone'],"</td>";
-		echo "<td>","<a href='update.php?accountId=",$row['accountId'], "'>수정</a></td>";
-		echo "<td>","<a href='delete.php?accountId=",$row['accountId'], "'>삭제</a></td>";	
+		echo "<td>","<a href='updateaccount.php?accountId=",$row['accountId'], "'>수정</a></td>";
+		echo "<td>","<a href='deleteaccount.php?accountId=",$row['accountId'], "'>삭제</a></td>";	
 		echo "</tr>";
 	}
 
 	mysqli_close($con);
 	echo "</table>";
 	echo "<br> <a href='main.html'><-- 홈으로</a> ";
+	echo "&nbsp &nbsp <a href='insertaccount.php'><b>회원가입하기(추가)</b></a> ";
 ?>
