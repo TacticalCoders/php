@@ -6,7 +6,7 @@
 	$sql = "SELECT applyId,name,clubName,studentId,department,phone,aboutMe,motive,applyTime 
 	          FROM apply,account,club 
 	          WHERE apply.clubId = (SELECT clubId FROM club WHERE clubName Like '".$cName."') 
-	          AND accountId=applicantId AND apply.clubId=club.clubId ORDER BY applyTime; ";
+	          AND accountId=applicantId AND apply.clubId=club.clubId AND studentId Like '22%' ORDER BY applyTime ;  ";
 		//학번 정보 추가
 	$ret = mysqli_query($con, $sql);
 	if($ret) {
