@@ -2,7 +2,7 @@
 	$con = mysqli_connect("localhost","id202001480","pw202001480","clubdb") or die("MySQL 접속 실패!!");
 	
 	$sql ="SELECT clubId,clubName,onelineIntro,intro,division,category,location,contact,website,recruitStart,recruitEnd
-	        ,(SELECT name from account where club.clubOwner=accountId) 'owner' FROM club;";
+	        ,(SELECT name from account where club.clubOwner=accountId) 'owner' FROM club WHERE recruitEnd > NOW();";
 	
 	$ret = mysqli_query($con, $sql);
 	if($ret) {
@@ -14,7 +14,7 @@
 		exit();
 	}
 	
-	echo "<h1>교내 동아리 목록</h1>";
+	echo "<h1>모집중인 동아리ㆍ소모임 목록</h1>";
 	echo "<table border=1>";
 	echo "<tr>";
 	echo "<th>동아리 번호</th><th>동아리 이름</th> <th>한 줄 소개</th> <th>동아리 소개</th> <th>구분</th> <th>카테고리</th>";
@@ -42,5 +42,4 @@
 	mysqli_close($con);
 	echo "</table>";
 	echo "<br> <a href='main.html'><-- 홈으로</a> ";
-	echo "&nbsp &nbsp <a href='insertclub.php'><b>동아리 등록하기(추가)</b></a> ";
 ?>
